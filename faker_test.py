@@ -7,14 +7,14 @@ fake = Faker("ja_JP")
 def make_fake_list(index_count):
     list = []
     for i in range(index_count):
-        row = [fake.name(), fake.address(), fake.town(), fake.email()]
+        row = [fake.name(), random.randint(19,70), fake.address(), fake.town(), fake.email()]
         list.append(row)
-    df = pd.DataFrame(data=list, columns=["name", "address", "town", "email"])
+    df = pd.DataFrame(data=list, columns=["name", "age", "address", "town", "email"])
     return (df)
 
 
 if __name__ == '__main__':
-    for i in range(1, 31):
+    for i in range(1, 3001):
         num = random.randint(1,1000)
         df = make_fake_list(num)
         name = fake.company()
